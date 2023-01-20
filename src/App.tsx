@@ -1,25 +1,55 @@
 import React from 'react';
-import logo from './logo.svg';
+import computer from './assets/computer.gif';
 import './App.css';
+import { ChakraProvider } from '@chakra-ui/react';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Landing from './pages/landing';
+import Main from './pages/main';
+import Home from './pages/home';
+import Experience from './pages/experience';
+import Skills from './pages/skills';
+import Contact from './pages/contact';
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Main />,
+     children: [
+      {
+        path: '/',
+        element: <Landing/>
+      },
+    //   {
+    //     path: '/home',
+    //     element: <Home/>
+    //   },
+    //   {
+    //     path: '/experience',
+    //     element: <Experience/>
+    //   },
+    //   {
+    //     path: '/skills',
+    //     element: <Skills/>
+    //   },
+    //   {
+    //     path: '/contact',
+    //     element: <Contact/>
+    //   },
+    //   {
+    //     path: '/about',
+    //     element: <Contact/>
+    //   }
+     ]
+  }
+]);
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  return ( 
+    <ChakraProvider>
+      <RouterProvider router={router} />
+    </ChakraProvider>
   );
 }
 
