@@ -54,11 +54,11 @@ const Main = () => {
       <section id="skills" ref={skillRef}>
         <Skills isVisible={isSkillIntersected} />
       </section>
-      <section id="contact" ref={contactRef}>
-        <Contact isVisible={isContactIntersected} />
-      </section>
       <section id="experience" ref={experienceRef}>
         <Experience isVisible={isExperienceIntersected} />
+      </section>
+      <section id="contact" ref={contactRef}>
+        <Contact isVisible={isContactIntersected} />
       </section>
       </>
       );
